@@ -1,21 +1,17 @@
 # OxumToolbar
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
-<br/>
 This is a simple library to add a toolbar using Primeng in an Angular project
 
-##Installation
+## Installation
 `npm i oxum-toolbar primeng primeicons`
 
-Then update your style dependencies in angular.json: 
-
+Then update your style dependencies in `angular.json`: 
 ``` json
     ...
     "styles": [
       "node_modules/primeicons/primeicons.css",
       "node_modules/primeng/resources/primeng.min.css",
       "node_modules/primeng/resources/themes/saga-blue/theme.css",
-       ...
     ],
     ...
 ```
