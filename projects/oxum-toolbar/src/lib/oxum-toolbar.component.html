@@ -1,0 +1,55 @@
+<p-toolbar>
+    <div class="p-toolbar-group-left">
+        <ng-container *ngFor="let item of itemsAtLeft">
+            <p-splitButton
+                *ngIf="!!item.subMenuItem; else button"
+                [model]="item.subMenuItem"
+                [label]="item.label"
+                [icon]="item.icon"
+                [disabled]="item.disabled"
+                (onClick)="item.command($event)"
+                [pTooltip]="item.tooltip || ''"
+                [tooltipPosition]="'bottom'"
+                [styleClass]="item.styleClass || 'p-button-sm'"
+            ></p-splitButton>
+            <ng-template #button>
+                <p-button
+                    [label]="item.label"
+                    [icon]="item.icon"
+                    [disabled]="item.disabled"
+                    (click)="item.command($event)"
+                    [pTooltip]="item.tooltip || ''"
+                    [tooltipPosition]="'bottom'"
+                    [styleClass]="item.styleClass || 'p-button-sm'"
+                ></p-button>
+            </ng-template>
+        </ng-container>
+    </div>
+
+    <div class="p-toolbar-group-right">
+        <ng-container *ngFor="let item of itemsAtRight">
+            <p-splitButton
+                *ngIf="!!item.subMenuItem; else button"
+                [model]="item.subMenuItem"
+                [label]="item.label"
+                [icon]="item.icon"
+                [disabled]="item.disabled"
+                (onClick)="item.command($event)"
+                [pTooltip]="item.tooltip || ''"
+                [tooltipPosition]="'bottom'"
+                [styleClass]="item.styleClass || 'p-button-sm'"
+            ></p-splitButton>
+            <ng-template #button>
+                <p-button
+                    [label]="item.label"
+                    [icon]="item.icon"
+                    [disabled]="item.disabled"
+                    (click)="item.command($event)"
+                    [pTooltip]="item.tooltip || ''"
+                    [tooltipPosition]="'bottom'"
+                    [styleClass]="item.styleClass || 'p-button-sm'"
+                ></p-button>
+            </ng-template>
+        </ng-container>
+    </div>
+</p-toolbar>

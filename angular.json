@@ -31,6 +31,9 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeng/resources/themes/saga-blue/theme.css",
               "src/styles.less"
             ],
             "scripts": []
@@ -122,6 +125,46 @@
             "production": {
               "devServerTarget": "oxum-toolbar-demo:serve:production"
             }
+          }
+        }
+      }
+    },
+    "oxum-toolbar": {
+      "projectType": "library",
+      "root": "projects/oxum-toolbar",
+      "sourceRoot": "projects/oxum-toolbar/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/oxum-toolbar/tsconfig.lib.json",
+            "project": "projects/oxum-toolbar/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/oxum-toolbar/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/oxum-toolbar/src/test.ts",
+            "tsConfig": "projects/oxum-toolbar/tsconfig.spec.json",
+            "karmaConfig": "projects/oxum-toolbar/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/oxum-toolbar/tsconfig.lib.json",
+              "projects/oxum-toolbar/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }

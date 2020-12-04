@@ -1,0 +1,13 @@
+{
+  "name": "oxum-toolbar",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^11.0.3",
+    "@angular/core": "^11.0.3",
+    "primeng": "^11.0.0-rc.2",
+    "primeicons": "^4.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}
