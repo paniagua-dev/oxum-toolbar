@@ -1,27 +1,87 @@
-# OxumToolbarDemo
+# OxumToolbar
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
+This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
+<br/>
+This is a simple library to add a toolbar using Primeng in an Angular project
 
-## Development server
+##Installation
+`npm i oxum-toolbar primeng primeicons`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Then update your style dependencies in angular.json: 
 
-## Code scaffolding
+``` json
+    ...
+    "styles": [
+      "node_modules/primeicons/primeicons.css",
+      "node_modules/primeng/resources/primeng.min.css",
+      "node_modules/primeng/resources/themes/saga-blue/theme.css",
+       ...
+    ],
+    ...
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Basic usage
 
-## Build
+```js
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {PrimeIcons} from 'primeng/api';
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+@Component({
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.less'],
+})
+export class HomeComponent implements OnInit {
+    public appTitle: string = '';
+    public toolbarMenuItems = {
+        simpleActions: [
+            {
+                label: 'Download',
+                icon: PrimeIcons.DOWNLOAD,
+            },
+            {
+                label: 'Preview',
+                icon: PrimeIcons.WINDOW_MAXIMIZE,
+                command: () => {alert('Preview')},
+                tooltip: 'Preview',
+            },
+            {
+                label: 'Print',
+                icon: PrimeIcons.PRINT,
+                command: () => {alert('Print')},
+                tooltip: 'Open and print',
+                subMenuItem: [
+                    {
+                        label: 'Print',
+                        command: () => {alert('printed')},
+                    },
+                ],
+            },
+        ],
+        moreActions: [
+            {
+                label: 'Open',
+                icon: PrimeIcons.FILE_O,
+                command: () => {alert('Opened')},
+                tooltip: 'Open new',
+                styleClass: 'p-button-warning',
+            },
+            {
+                label: 'Save',
+                icon: PrimeIcons.SAVE,
+                command: () => {alert('Saved')},
+                tooltip: 'Save this',
+                styleClass: 'p-button-warning',
+            },
+        ],
+    };
+    constructor(private route: ActivatedRoute) {
+    }
 
-## Running unit tests
+    ngOnInit(): void {
+        this.appTitle = this.route.snapshot.data['title'];
+    }
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+}
+```
