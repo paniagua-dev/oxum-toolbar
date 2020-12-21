@@ -15,7 +15,6 @@ import {OxumToolbarComponent} from './oxum-toolbar.component';
         SplitButtonModule,
         TooltipModule,
         MenuModule,
-        BrowserAnimationsModule,
     ],
     exports: [
         OxumToolbarComponent,
