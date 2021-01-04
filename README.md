@@ -1,4 +1,4 @@
-# OxumToolbar
+# Oxum Toolbar
 
 This is a simple library to add a toolbar using Primeng in an Angular project
 
